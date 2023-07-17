@@ -14,7 +14,7 @@ app.use(
   })
 );
 app.use(express.static("public"));
-app.use(enforce.HTTPS({ trustProtoHeader: true }));
+// app.use(enforce.HTTPS({ trustProtoHeader: true }));
 app.get("/", function (req, res) {
   res.sendFile(__dirname + "/index.html");
 });
@@ -45,22 +45,7 @@ app.post("/join", function (req, res) {
   const dob = req.body.dob;
   const phone = req.body.phone;
   const message = req.body.message;
-  // const data = {
-  //   members: [
-  //     {
-  //       email_address: email,
-  //       status: "subscribed",
-  //       merge_fields: {
-  //         NAME: name,
-  //         DOB: dob,
-  //         PHONE: phone,
-  //         MESSAGE: message,
-  //         COUNTRY: country,
-  //         STATE: state,
-  //       },
-  //     },
-  //   ],
-  // };
+
   const auth = {
     auth: {
       api_key: process.env.KEY,
